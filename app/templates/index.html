@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preguntas y Respuestas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Preguntas y Respuestas</h1>
+    {% for pregunta in preguntas %}
+        <div class="pregunta">
+            <h2>{{ pregunta.titulo }}</h2>
+            <p>{{ pregunta.contenido }}</p>
+            <form action="{{ url_for('rutas.comentar', pregunta_id=pregunta.id) }}" method="POST">
+                <textarea name="contenido" placeholder="Comenta aquí..."></textarea>
+                <button type="submit">Comentar</button>
+            </form>
+        </div>
+        <hr>
+    {% endfor %}
+</body>
+</html>

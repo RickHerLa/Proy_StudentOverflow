@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preguntas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Preguntas</h1>
+
+    <!-- Aquí iteramos sobre las preguntas y las mostramos -->
+    {% for pregunta in preguntas %}
+        <div class="Preguntas">
+            <h3>{{ pregunta.titulo }}</h3>
+            <p>{{ pregunta.descripcion }}</p>
+        </div>
+    {% else %}
+        <p>No hay preguntas disponibles.</p>
+    {% endfor %}
+    
+</body>
+</html>
